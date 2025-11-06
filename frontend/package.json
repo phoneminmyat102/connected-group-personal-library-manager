@@ -1,0 +1,25 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "next.config.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev -p 5173",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.6",
+    "axios": "^1.13.2",
+    "date-fns": "^4.1.0",
+    "js-cookie": "^3.0.5",
+    "next": "^15.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}

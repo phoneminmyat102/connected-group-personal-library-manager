@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: personal-library-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGO_URI: "mongodb://mongo:27017/personal_library"
+      REDIS_HOST: "redis"
+      REDIS_PORT: 6379
+      JWT_SECRET: "thisisjwtsecretkey11144555"
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo:7.0
+    container_name: personal-library-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:8-alpine
+    container_name: personal-library-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:
